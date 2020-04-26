@@ -14,7 +14,7 @@ go = do
     input <- T.getLine
     hFlush stdout
     let result = process input
-    respond result
+    printResult result
     case result of 
       Exit -> return ()
       _ -> go
@@ -28,7 +28,7 @@ process input = case input of
                   ".exit" -> Exit
                   _ -> Continue
 
-respond :: ReplResult -> IO ()
-respond NoInput = return ()
-respond Exit = return ()
-respond Continue = T.putStrLn "Error reading input."
+printResult :: ReplResult -> IO ()
+printResult NoInput = return ()
+printResult Exit = return ()
+printResult Continue = T.putStrLn "Error reading input."
