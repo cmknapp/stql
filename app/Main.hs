@@ -1,9 +1,9 @@
 module Main where
 
 import qualified Data.Text.IO as TIO
-import System.IO
+import           System.IO
 
-import Lib
+import           Lib
 
 main :: IO ()
 main = go
@@ -16,7 +16,7 @@ go = do
     hFlush stdout
     let result = processInput $ parsePrompt raw
     printResult result
-    case result of 
+    case result of
       CommandResult Exit -> return ()
-      _ -> go
+      _                  -> go
 
